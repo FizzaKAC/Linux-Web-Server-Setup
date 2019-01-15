@@ -54,4 +54,17 @@ Give grader sudo access using `sudo touch /etc/sudoers.d/grader` and the edit th
 ```sh
 grader ALL=(ALL) NOPASSWD:ALL
 ```
+Now, make a public key for grader
+- On the local machine:
+  * Use ssh-keygen to make a pair of public and private key for the grader user
+  * Paste the private key in the local machines .ssh folder
+  * Copy the contents of the public key and log into your grader account
+- On the grader vm:
+  * Make a new dir `~/.ssh`
+  * Run `sudo nano ~/.ssh/authorized_keys` and paste the contents of the public key into file and save
+  * Change the permissions: `chmod 700 .ssh` and `chmod 644 .ssh/authorized_keys`
+  * Check in `/etc/ssh/sshd_config` file if PasswordAuthentication is set to no
+  * Restart ssh with `sudo service ssh restart`
+-On the local machine log in with :
+``ssh -i ~.ssh/private_key grader@ipaddress -p 2200``
 
