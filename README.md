@@ -68,3 +68,22 @@ Now, make a public key for grader
 -On the local machine log in with :
 ``ssh -i ~.ssh/private_key grader@ipaddress -p 2200``
 
+### Configure TimeZone
+
+Run the following command to change the time zone to UTC: 
+```sh
+sudo dpkg-reconfigure tzdata
+```
+Then, in the 'other' options, select UTC
+
+
+### Install Apache
+Install apache using the following command: 
+```sh
+sudo apt-get install apache2
+```
+
+Then, install mod-wsgi:
+```sh
+sudo apt-get install libapache2-mod-wsgi python-dev
+```
