@@ -1,1 +1,57 @@
-# Linux-Web-Server-Setup
+
+# Linux Web Server Configuration Project
+Hello! Welcome to the documentation of the setup of my Linux Web Server for the Item Catalog flask application. It is deployed using an AWS Lightsail instance. Here is the link to the final website: [ItemCatalog](http://13.233.239.144.xip.io)
+
+(Static) IP address for this instance: 13.233.239.144
+SSH Port: 2200
+
+Complete url: http://13.233.239.144.xip.io
+
+The following programs were used for the configuration of this web server
+* [Apache2](https://httpd.apache.org) HTTP Web server
+* [Mod WSGI](https://modwsgi.readthedocs.io/en/develop/)
+* [PostgreSQL](https://www.postgresql.org) Database Server
+
+## Setup
+Firstly, create an [Amazon web services](https://portal.aws.amazon.com/billing/signup#/start) Lightsail Instance and chose the Ubuntu 16 instance image
+
+Then convert your public ip address into a static public ip address. 
+
+Download the default key and note the full path. Then using the vagrant vm, ssh into your new instance using:
+
+`ssh -i ~/pathtodefaultkey/ username@publicipaddress`
+
+Secondly, upgrade all existing packages
+```sh
+sudo apt-get update
+sudo apt-get upgrade
+```
+
+Thirdly, change the ssh port from port 22 to prt 2200. Do this by changing the '/etc/ssh/sshd_config' file and under listening ports, change the port from port 22 to port 2200.
+
+Then run `sudo service sshd restart'
+
+Next, configure the Firewall by running the following lines:
+```sh
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw deny ssh
+sudo ufw allow 2200/tcp
+sudo ufw allow www
+sudo ufw allow ntp
+```
+And finally `sudo ufw enable`
+
+Click on the Manage option of the Amazon Lightsail Instance, then the Networking tab, and then change the firewall configuration to match the firewall settings above. Allow ports 80(TCP), 123(UDP), and 2200(TCP), and deny the default port 22.
+
+Now you can ssh into the server using
+`ssh -i ~/pathtodefaultkey/ username@publicipaddress -p 2200`
+
+### Create new user
+Create a new user `grader` using `sudo adduser grader`. When prompted use `grader` as password.
+
+Give grader sudo access using `sudo touch /etc/sudoers.d/grader` and the edit the file using `sudo nano /ect/sudoers.d/grader` and add the following line 
+```sh
+grader ALL=(ALL) NOPASSWD:ALL
+```
+
