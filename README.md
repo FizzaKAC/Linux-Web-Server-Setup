@@ -164,7 +164,15 @@ CLIENT_ID = json.loads(
 oauth_flow = flow_from_clientsecrets('/var/www/item-Catalog/client_secrets.json', scope='')
 ```
 ## Resources
-- [Changing SSH Port)[https://pk.godaddy.com/help/changing-the-ssh-port-for-your-linux-server-7306]
-- (Adding privilages to DB user)[https://www.ntchosting.com/encyclopedia/databases/postgresql/create-user/]
-- (Xip.io)[http://xip.io]
-- (Setting up DB)[https://www.techrepublic.com/blog/diy-it-guy/diy-a-postgresql-database-server-setup-anyone-can-handle/]
+- [Amazon Lightsail](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Security_Guide/s2-wstation-privileges-noroot.html)
+- [Apache Web Server](https://httpd.apache.org)
+- [PostgreSql Web Server](postgresql.org)
+- [VirtualBox and Vagrant](https://www.vagrantup.com/docs/virtualbox/)
+- [Changing SSH Port](https://pk.godaddy.com/help/changing-the-ssh-port-for-your-linux-server-7306)
+- [Adding privilages to DB user](https://www.ntchosting.com/encyclopedia/databases/postgresql/create-user/)
+- [Xip.io](http://xip.io)
+- [Setting up DB](https://www.techrepublic.com/blog/diy-it-guy/diy-a-postgresql-database-server-setup-anyone-can-handle/)
+- [Creating Readme on dillinger](https://dillinger.io)
+- [How to secure PostgreSQL)[https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps]
+- [Disallowing root access on our server](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Security_Guide/s2-wstation-privileges-noroot.html)
+- [Udacity writing READMES free course](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Security_Guide/s2-wstation-privileges-noroot.html)
