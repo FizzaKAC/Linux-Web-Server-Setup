@@ -163,3 +163,8 @@ CLIENT_ID = json.loads(
 
 oauth_flow = flow_from_clientsecrets('/var/www/item-Catalog/client_secrets.json', scope='')
 ```
+## Resources
+- [Changing SSH Port)[https://pk.godaddy.com/help/changing-the-ssh-port-for-your-linux-server-7306]
+- (Adding privilages to DB user)[https://www.ntchosting.com/encyclopedia/databases/postgresql/create-user/]
+- (Xip.io)[http://xip.io]
+- (Setting up DB)[https://www.techrepublic.com/blog/diy-it-guy/diy-a-postgresql-database-server-setup-anyone-can-handle/]
