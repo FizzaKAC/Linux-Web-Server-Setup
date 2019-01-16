@@ -119,4 +119,22 @@ application.secret_key='super_secret_key'
  </Directory>
 </VirtualHost>
 ```
-### Install
+### Install Flask
+```sh
+sudo pip install requests 
+sudo pip install oauth2client 
+sudo pip install httplib2
+sudo apt-get install python-pip
+sudo apt-get python-sqlalchemy 
+sudo apt-get python-flask 
+sudo apt-get python-psycopg2
+```
+
+### Install PostgreSQL
+Install postgreSQL using the following command `sudo apt-get install postgresql`. Make sure remote connections arent possible by checking the `sudo nano /etc/postgresql/9.5/main/pg_hba.conf` config file. It should have the following code:
+```sh
+local   all             postgres                                peer
+local   all             all                                     peer
+host    all             all             127.0.0.1/32            md5
+host    all             all             ::1/128                 md5
+```
