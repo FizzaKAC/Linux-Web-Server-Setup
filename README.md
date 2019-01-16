@@ -76,7 +76,15 @@ sudo dpkg-reconfigure tzdata
 ```
 Then, in the 'other' options, select UTC
 
+### Install Git
+Use the following command to install git 
+`sudo apt-get install git`
 
+Clone repository into the dir /var/www
+```sh
+cd /var/www/
+sudo git clone https://github.com/FizzaKAC/Item-Catalog.git
+```
 ### Install Apache
 Install apache using the following command: 
 ```sh
@@ -87,3 +95,28 @@ Then, install mod-wsgi:
 ```sh
 sudo apt-get install libapache2-mod-wsgi python-dev
 ```
+
+Make an `itemscatalog.wsgi` file in the application dir. Paste the following code:
+```sh
+import sys
+sys.path.insert(0, "/var/www/Item-Catalog")
+from views import app as application
+application.secret_key='super_secret_key'
+```
+
+ Set up a virtual host file: `cd /etc/apache2/sites-available/catalogapp.conf`
+ Then paste the following code in it:
+```sh
+<VirtualHost *>
+ ServerName example.com
+ WSGIScriptAlias / /var/www/Item-Catalog/itemcatalog.wsgi
+ WSGIDaemonProcess hello
+ <Directory /var/www/Item-Catalog>
+  WSGIProcessGroup hello
+  WSGIApplicationGroup %{GLOBAL}
+   Order deny,allow
+   Allow from all
+ </Directory>
+</VirtualHost>
+```
+### Install
