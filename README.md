@@ -147,3 +147,19 @@ CREATE USER catalog WITH PASSWORD 'catalog';
 CREATE DATABASE catalogapp;
 GRANT ALL PRIVILEGES ON DATABASE catalogapp TO catalog;
 ```
+Then, `exit` the postgres user and update the database model and all other files to reflect the changes on out engine:
+```sh
+engine = create_engine('postgresql://catalog:catalog@localhost/catalogapp')
+```
+Now run the `models.py` file to create the database tables and `lotsOfCategories.py` to populate the categories.
+
+### OAuth
+To set up oauth, we will be using xip.io to create wildcard dns for our static ip address. We will first authorize out xip.io domain on the google developers console website, then add the authorized javscript origins and redirect uris. Next, we will replace the client_secrets file with the new client secrets file, and update the client if in our `login.html` file respectivly.
+
+We also need to show the full path of the client_secrets.json file in our main python file :
+```sh
+CLIENT_ID = json.loads(
+    open('/var/www/item-Catalog/client_secrets.json', 'r').read())['web']['client_id']
+
+oauth_flow = flow_from_clientsecrets('/var/www/item-Catalog/client_secrets.json', scope='')
+```
