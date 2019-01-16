@@ -138,3 +138,12 @@ local   all             all                                     peer
 host    all             all             127.0.0.1/32            md5
 host    all             all             ::1/128                 md5
 ```
+#### Create database
+Log into the postgres user. First change the default password using `sudo passwd postgres` and enter postgres as password. Then log in using sudo postgres and enter the password.
+
+Once logged in, enter psql to enter the postgresql environment. Run the following commands:
+```sh
+CREATE USER catalog WITH PASSWORD 'catalog';
+CREATE DATABASE catalogapp;
+GRANT ALL PRIVILEGES ON DATABASE catalogapp TO catalog;
+```
