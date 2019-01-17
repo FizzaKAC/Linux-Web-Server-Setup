@@ -173,6 +173,6 @@ oauth_flow = flow_from_clientsecrets('/var/www/item-Catalog/client_secrets.json'
 - [Xip.io](http://xip.io)
 - [Setting up DB](https://www.techrepublic.com/blog/diy-it-guy/diy-a-postgresql-database-server-setup-anyone-can-handle/)
 - [Creating Readme on dillinger](https://dillinger.io)
-- [How to secure PostgreSQL)[https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps]
+- [How to secure PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
 - [Disallowing root access on our server](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Security_Guide/s2-wstation-privileges-noroot.html)
 - [Udacity writing READMES free course](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Security_Guide/s2-wstation-privileges-noroot.html)
