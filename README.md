@@ -25,6 +25,11 @@ Secondly, upgrade all existing packages
 ```sh
 sudo apt-get update
 sudo apt-get upgrade
+sudo apt-get install aptitude
+sudo aptitude update
+sudo aptitude safe-upgrade
+sudo apt-get install unattended-upgrades
+sudo dpkg-reconfigure --priority=low unattended-upgrades
 ```
 
 Thirdly, change the ssh port from port 22 to prt 2200. Do this by changing the '/etc/ssh/sshd_config' file and under listening ports, change the port from port 22 to port 2200.
