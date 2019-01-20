@@ -70,8 +70,11 @@ Now, make a public key for grader
   * Change the permissions: `chmod 700 .ssh` and `chmod 644 .ssh/authorized_keys`
   * Check in `/etc/ssh/sshd_config` file if PasswordAuthentication is set to no
   * Restart ssh with `sudo service ssh restart`
--On the local machine log in with :
-``ssh -i ~.ssh/private_key grader@ipaddress -p 2200``
+- On the local machine log in with :
+```sh
+ssh -i ~.ssh/private_key grader@ipaddress -p 2200
+```
+and use passphrase 'grader'
 
 ### Configure TimeZone
 
