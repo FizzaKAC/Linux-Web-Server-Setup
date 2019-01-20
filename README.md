@@ -163,11 +163,39 @@ CLIENT_ID = json.loads(
 
 oauth_flow = flow_from_clientsecrets('/var/www/item-Catalog/client_secrets.json', scope='')
 ```
+
+### FAIL2BAN
+Added after first review of project. [Fail2Ban](https://www.fail2ban.org/wiki/index.php/Main_Page) scans log files and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time. 
+
+Install Fail2Ban:
+```sh 
+sudo apt-get install fail2ban
+```
+Install sendmail and iptables:
+```sh
+sudo apt-get install sendmail iptables-persistent
+```
+Create a copy of the original config file and edit some default vaules:
+```sh
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+sudo nano /etc/fail2ban/jail.local
+set bantime = 600
+destemail = xyz@domain.com
+action = %(action_mwl)s 
+```
+Under `[sshd]` change `port = ssh` to `port = 2200`
+Restart the service: 
+```sh
+sudo service fail2ban restart
+```
+You will then recieve an email saying that fail2ban has been started(You might need to check your spam)
+
 ## Resources
 - [Amazon Lightsail](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Security_Guide/s2-wstation-privileges-noroot.html)
 - [Apache Web Server](https://httpd.apache.org)
 - [PostgreSql Web Server](postgresql.org)
 - [VirtualBox and Vagrant](https://www.vagrantup.com/docs/virtualbox/)
+- [Fail2Ban](https://www.fail2ban.org/wiki/index.php/Main_Page)
 - [Changing SSH Port](https://pk.godaddy.com/help/changing-the-ssh-port-for-your-linux-server-7306)
 - [Adding privilages to DB user](https://www.ntchosting.com/encyclopedia/databases/postgresql/create-user/)
 - [Xip.io](http://xip.io)
