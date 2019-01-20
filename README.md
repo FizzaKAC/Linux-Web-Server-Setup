@@ -189,6 +189,7 @@ destemail = xyz@domain.com
 action = %(action_mwl)s 
 ```
 Under `[sshd]` change `port = ssh` to `port = 2200`
+
 Restart the service: 
 ```sh
 sudo service fail2ban restart
@@ -208,4 +209,5 @@ You will then recieve an email saying that fail2ban has been started(You might n
 - [Creating Readme on dillinger](https://dillinger.io)
 - [How to secure PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
 - [Disallowing root access on our server](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Security_Guide/s2-wstation-privileges-noroot.html)
+- [How to install Fail2Ban](https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04)
 - [Udacity writing READMES free course](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Security_Guide/s2-wstation-privileges-noroot.html)
